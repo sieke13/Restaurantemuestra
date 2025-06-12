@@ -32,12 +32,23 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
         <Link to="/">
           <h1>La Cocina Mexicana</h1>
         </Link>
-      </div>
-      <div className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+      </div>      <div 
+        className={`menu-toggle ${menuOpen ? 'active' : ''}`} 
+        onClick={toggleMenu} 
+        role="button" 
+        aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"} 
+        aria-expanded={menuOpen}
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            toggleMenu();
+          }
+        }}
+      >
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
-      </div>      <nav className={`nav ${menuOpen ? 'active' : ''}`}>
+      </div><nav className={`nav ${menuOpen ? 'active' : ''}`}>
         <ul>
           <li><NavLink to="/" onClick={() => toggleMenu()} end>Inicio</NavLink></li>
           <li><NavLink to="/menu" onClick={() => toggleMenu()}>Menú</NavLink></li>

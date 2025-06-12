@@ -49,6 +49,36 @@
   --overlay-color: rgba(0, 0, 0, 0.7);
 }
 
+/* Estilos específicos del botón de menú para modo oscuro */
+[data-theme='dark'] .menu-toggle {
+  background: var(--gradient-button);
+  box-shadow: 0 4px 15px rgba(245, 101, 101, 0.3);
+}
+
+[data-theme='dark'] .menu-toggle.active {
+  background: #fc8181;
+}
+
+[data-theme='dark'] .menu-toggle .bar {
+  background-color: white;
+}
+
+@keyframes dark-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 101, 101, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(245, 101, 101, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 101, 101, 0);
+  }
+}
+
+[data-theme='dark'] .menu-toggle {
+  animation: dark-pulse 2s infinite;
+}
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);

@@ -216,6 +216,10 @@
     font-size: 1.2rem;
     margin-bottom: 0.7rem;
   }
+
+  .footer {
+    padding-bottom: 80px; /* Añade espacio suficiente en la parte inferior del footer */
+  }
 }
 
 @media (max-width: 480px) {
