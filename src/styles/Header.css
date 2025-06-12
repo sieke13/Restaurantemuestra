@@ -1,19 +1,49 @@
 /* Header.css */
 .header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
   align-items: center;
-  padding: 1rem 5%;
+  padding: 1rem 2%;
   background-color: var(--header-bg-color);
   box-shadow: var(--header-shadow);
   position: sticky;
   top: 0;
-  z-index: 800; /* Aumentado pero menor que el del menú móvil y su overlay */
+  z-index: 800;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+.header-section {
+  display: flex;
+  align-items: center;
+}
+
+.header-section.left {
+  justify-content: flex-start;
+}
+
+.header-section.center {
+  justify-content: flex-start;
+  padding-left: 2%;
+}
+
+.header-section.right {
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.social-contact-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 100%;
+  text-align: left;
+}
+
 .logo h1 {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -148,24 +178,48 @@
 
 .menu-toggle {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 35px;
-  height: 24px;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
   z-index: 1100; /* Mayor que el menú y el overlay para ser siempre accesible */
-  padding: 12px;
-  margin-right: -10px;
   position: relative; /* Asegurar que el z-index funcione correctamente */
-  border-radius: 8px;
+  border-radius: 50%;
   background: var(--gradient-button);
-  box-shadow: 0 2px 10px rgba(197, 48, 48, 0.3);
+  box-shadow: 0 3px 10px rgba(197, 48, 48, 0.4);
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .menu-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(197, 48, 48, 0.4);
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(197, 48, 48, 0.5);
+}
+
+.menu-icon-container {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.4s ease-out;
+}
+
+.menu-toggle:hover .menu-circle {
+  opacity: 1;
+  transform: scale(1.2);
 }
 
 .menu-toggle .bar {
@@ -174,26 +228,43 @@
   background-color: white;
   border-radius: 3px;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  margin: 0;
+  position: relative;
 }
 
 .menu-toggle.active {
   background: var(--primary-hover-color);
-  animation: none;
+  animation: pulse 1s ease-out;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(197, 48, 48, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(197, 48, 48, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(197, 48, 48, 0); }
 }
 
 .menu-toggle.active .bar:nth-child(1) {
   transform: translateY(10px) rotate(45deg);
+  width: 100%;
   background-color: white;
 }
 
 .menu-toggle.active .bar:nth-child(2) {
   opacity: 0;
+  transform: translateX(-20px);
+  background-color: white;
 }
 
 .menu-toggle.active .bar:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
+  width: 100%;
   background-color: white;
+}
+
+.menu-toggle.active .menu-circle {
+  opacity: 0.3;
+  transform: scale(0);
 }
 
 /* Clases adicionales para mostrar/ocultar elementos según el dispositivo */
@@ -222,73 +293,156 @@
 @media (max-width: 768px) {
   .header {
     padding: 0.8rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
   }
   
   .logo h1 {
-    font-size: 1.8rem;
-  }
-  .menu-toggle {
-    display: flex;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1200;
-    background: var(--gradient-button);
-    border-radius: 12px;
-    padding: 14px;
-    margin: 0;
-    box-shadow: 0 4px 15px rgba(197, 48, 48, 0.4);
-    animation: pulse 2s infinite;
+    font-size: 1.6rem;
   }
   
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(197, 48, 48, 0.7);
-    }
-    70% {
-      box-shadow: 0 0 0 8px rgba(197, 48, 48, 0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(197, 48, 48, 0);
-    }
+  .menu-toggle {
+    display: flex;
+    position: relative;
+    z-index: 1200;
+    background: var(--primary-color);
+    background-image: radial-gradient(circle at 60% 35%, var(--primary-hover-color), var(--primary-color));
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 4px 12px rgba(197, 48, 48, 0.5), inset 0 -2px 5px rgba(0,0,0,0.2);
+    width: 42px;
+    height: 42px;
+    animation: gentle-pulse 3s infinite alternate;
+  }
+  
+  @keyframes gentle-pulse {
+    0% { box-shadow: 0 4px 12px rgba(197, 48, 48, 0.5), inset 0 -2px 5px rgba(0,0,0,0.2); }
+    100% { box-shadow: 0 4px 15px rgba(197, 48, 48, 0.7), inset 0 -2px 5px rgba(0,0,0,0.2); }
+  }
+  
+  .menu-icon-container {
+    width: 20px;
+    height: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  
+  .menu-toggle .bar {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+    margin: 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+  }
+  
+  .menu-toggle .bar:nth-child(1) {
+    top: 0;
+    width: 100%;
+  }
+  
+  .menu-toggle .bar:nth-child(2) {
+    top: 7px;
+    width: 70%;
+    left: 15%;
+  }
+  
+  .menu-toggle .bar:nth-child(3) {
+    top: 14px;
+    width: 100%;
+  }
+  
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+    width: 100%;
+  }
+  
+  .menu-toggle.active .bar:nth-child(2) {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+    width: 100%;
+  }
+  
+  /* Mejorar la apariencia del menú hamburguesa */
+  .menu-toggle .bar:nth-child(1) {
+    width: 20px;
+  }
+  
+  .menu-toggle .bar:nth-child(2) {
+    width: 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .menu-toggle .bar:nth-child(3) {
+    width: 20px;
+  }
+  
+  /* Ajustes para el menú desplegable en modo cascada */
+  .nav.active {
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
+  }
+  
+  .nav li:last-child {
+    margin-bottom: 20px;
   }
   
   .menu-overlay {
     display: block;
-  }
-  .nav {
+  }  .nav {
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
-    background-color: white;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease-in-out;
-    z-index: 1000; /* Mayor z-index para asegurar que esté por encima de todo */
-    padding: 120px 0 0 0; /* Aumentado más para evitar solapamiento con el header */
+    top: -100vh;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: 0;
+    background-color: var(--card-bg-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease-in-out;
+    z-index: 1000;
+    padding: 0;
+    overflow: hidden;
   }
   
   .nav.active {
-    right: 0;
+    top: 60px; /* Ajusta esto según la altura de tu header */
+    max-height: 100vh;
   }
-    .nav ul {
+  .nav ul {
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
+    padding: 20px 0;
+    margin: 0;
+    background-color: var(--card-bg-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-top: 3px solid var(--primary-color);
   }
   
   .nav li {
-    margin: 1.2rem 0;
+    margin: 0.6rem 0;
     width: 100%;
     text-align: center;
   }
   
   .nav a {
-    font-size: 1.3rem;
-    padding: 10px 0;
-    display: inline-block;
-    width: 80%;
+    font-size: 1.2rem;
+    padding: 12px 0;
+    display: block;
+    width: 100%;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
   
   /* Ocultar contacto en la cabecera para móviles */
@@ -325,44 +479,161 @@
 
 /* Ajustes para diferentes tamaños de pantalla */
 @media (max-width: 480px) {
+  .header {
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 0.6rem;
+  }
+  
   .menu-toggle {
-    bottom: 15px;
-    right: 15px;
-    padding: 12px;
-    width: 32px;
-    height: 22px;
+    width: 38px;
+    height: 38px;
+    margin-right: 0;
+  }
+  
+  .menu-icon-container {
+    width: 18px;
+    height: 14px;
+  }
+  
+  .menu-toggle .bar {
+    height: 2px;
+  }
+  
+  .menu-toggle .bar:nth-child(2) {
+    top: 6px;
+  }
+  
+  .menu-toggle .bar:nth-child(3) {
+    top: 12px;
   }
   
   .menu-toggle.active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(6px) rotate(45deg);
   }
   
   .menu-toggle.active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-6px) rotate(-45deg);
   }
   
   .logo h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 }
 
-/* Añadir un indicador de texto junto al icono para más claridad */
-.menu-toggle::after {
-  content: "Menú";
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 12px;
-  font-weight: 600;
+/* Estilos para los iconos de redes sociales y teléfono */
+.header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-color);
   color: white;
-  background-color: var(--primary-color);
-  padding: 2px 8px;
-  border-radius: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-.menu-toggle:hover::after {
-  opacity: 1;
+.header-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(197, 48, 48, 0.25);
+  background: var(--primary-hover-color);
+}
+
+.phone-icon {
+  background: var(--gradient-button);
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: 1fr 2fr 2fr;
+    padding: 0.8rem 2%;
+  }
+  
+  .header-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .social-contact-icons {
+    gap: 5px;
+  }
+  
+  .theme-container {
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    grid-template-columns: auto auto auto;
+    padding: 0.6rem 1%;
+  }
+  
+  .header-section.left {
+    flex: 0 0 auto;
+  }
+  
+  .header-section.center {
+    flex: 1 1 auto;
+  }
+  
+  .header-section.right {
+    flex: 0 0 auto;
+  }
+  
+  .header-icon {
+    width: 24px;
+    height: 24px;
+  }
+    .social-contact-icons {
+    gap: 4px;
+    display: flex;
+  }
+}
+
+/* Animaciones para el menú */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.nav.active li {
+  animation: slideDown 0.4s forwards;
+  opacity: 0;
+}
+
+.nav.active li:nth-child(1) { animation-delay: 0.1s; }
+.nav.active li:nth-child(2) { animation-delay: 0.2s; }
+.nav.active li:nth-child(3) { animation-delay: 0.3s; }
+.nav.active li:nth-child(4) { animation-delay: 0.4s; }
+.nav.active li:nth-child(5) { animation-delay: 0.5s; }
+.nav.active li:nth-child(6) { animation-delay: 0.6s; }
+
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 900;
+  animation: fadeIn 0.3s forwards;
 }

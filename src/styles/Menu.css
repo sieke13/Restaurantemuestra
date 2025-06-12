@@ -48,18 +48,22 @@
 }
 
 .category-button {
-  padding: 10px 22px;
+  padding: 12px 25px;
   background-color: var(--card-bg-color);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: 30px;
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
   z-index: 1;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
+  min-width: 120px;
+  text-align: center;
 }
 
 .category-button::before {
@@ -91,7 +95,22 @@
   background: var(--gradient-button);
   color: #fff;
   border-color: var(--primary-color);
-  box-shadow: 0 4px 12px rgba(197, 48, 48, 0.25);
+  box-shadow: 0 4px 15px rgba(197, 48, 48, 0.4);
+  transform: translateY(-3px);
+  position: relative;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.category-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px;
 }
 
 .menu-items {
@@ -272,7 +291,8 @@
   }
 
   .menu-categories {
-    gap: 0.7rem;
+    gap: 12px;
+    padding: 0 10px;
     overflow-x: auto; /* Permite desplazamiento horizontal para muchas categorías */
     padding-bottom: 15px;
     flex-wrap: nowrap;
@@ -288,8 +308,9 @@
   .category-button {
     margin-bottom: 0.5rem;
     white-space: nowrap;
-    padding: 10px 18px; /* Botones más grandes para mejor interacción táctil */
-    font-size: 0.95rem;
+    padding: 10px 20px; /* Botones más grandes para mejor interacción táctil */
+    font-size: 1rem;
+    min-width: 100px;
     margin-right: 5px;
   }
   
@@ -320,58 +341,50 @@
   }
 
   .section-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 1.2rem;
   }
 
+  .menu-categories {
+    gap: 8px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Para Firefox */
+  }
+  
+  .menu-categories::-webkit-scrollbar {
+    display: none; /* Para Chrome, Safari y Opera */
+  }
+  
   .category-button {
-    padding: 8px 16px; /* Botones de categoría más grandes para facilitar la interacción */
-    font-size: 0.85rem;
-    font-weight: 600; /* Más peso visual */
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    min-width: auto;
+    flex-shrink: 0;
     margin: 0 3px 5px 0;
   }
 
-  .menu-categories {
-    margin-bottom: 1.8rem;
-    padding: 8px 5px;
-  }
-
-  .menu-item {
-    margin-bottom: 1.5rem;
-    /* Sombra mejorada para mejor separación visual */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  .menu-items {
+    grid-template-columns: 1fr; /* Una sola columna en móviles para mejor legibilidad */
+    gap: 1.5rem; /* Más espacio entre elementos para mejorar legibilidad */
   }
 
   .menu-item-details {
-    padding: 1.2rem; /* Un poco más de padding que antes */
-  }
-
-  .menu-item-header {
-    flex-direction: column; /* Nombre y precio en columna para mejor ajuste */
-    align-items: flex-start;
-    gap: 8px;
+    padding: 1.5rem; /* Más padding para mejor legibilidad */
   }
 
   .menu-item-header h3 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+    font-size: 1.3rem; /* Ligeramente más grande para mejor legibilidad */
+    line-height: 1.4;
   }
 
   .menu-item-price {
-    font-size: 1.1rem;
-    padding: 4px 10px;
-    display: inline-block;
-  }
-
-  .menu-item-description {
-    font-size: 0.9rem; /* Incrementado para mejor legibilidad */
-    margin: 1rem 0;
-    line-height: 1.5; /* Mejor espaciado de línea */
-  }
-  
-  /* Ajustar altura de imagen para dispositivos pequeños */
-  .menu-item-image {
-    height: 180px;
+    font-size: 1.2rem;
+    padding: 6px 12px; /* Más padding para mejor visibilidad */
   }
 }
 

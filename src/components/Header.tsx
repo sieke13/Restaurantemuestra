@@ -25,29 +25,54 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [menuOpen]);
-  return (
+  }, [menuOpen]);  return (
     <header className="header">
-      {menuOpen && <div className="menu-overlay" onClick={toggleMenu}></div>}      <div className="logo">
-        <Link to="/">
-          <h1>La Cocina Mexicana</h1>
-        </Link>
-      </div>      <div 
-        className={`menu-toggle ${menuOpen ? 'active' : ''}`} 
-        onClick={toggleMenu} 
-        role="button" 
-        aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"} 
-        aria-expanded={menuOpen}
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            toggleMenu();
-          }
-        }}
-      >
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+      {menuOpen && <div className="menu-overlay" onClick={toggleMenu}></div>}      <div className="header-section left">        <div 
+          className={`menu-toggle ${menuOpen ? 'active' : ''}`} 
+          onClick={toggleMenu} 
+          role="button" 
+          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"} 
+          aria-expanded={menuOpen}
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              toggleMenu();
+            }
+          }}
+        >
+          <div className="menu-icon-container">
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="menu-circle"></div>
+          </div>
+        </div>
+      </div>
+      <div className="header-section center logo-section">
+        <div className="logo">
+          <Link to="/">
+            <h1>La Cocina Mexicana</h1>
+          </Link>
+        </div>
+      </div>
+      <div className="header-section right">
+        <div className="social-contact-icons">
+          <a href={`tel:${contactInfo.phone}`} className="header-icon phone-icon" aria-label="Llamar al restaurante">
+            <PhoneIcon size={22} />
+          </a>
+          <a href={contactInfo.socialMedia.facebook} target="_blank" rel="noopener noreferrer" className="header-icon" aria-label="Visitar Facebook">
+            <FacebookIcon size={22} />
+          </a>
+          <a href={contactInfo.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="header-icon" aria-label="Visitar Instagram">
+            <InstagramIcon size={22} />
+          </a>
+          <a href={contactInfo.socialMedia.twitter} target="_blank" rel="noopener noreferrer" className="header-icon" aria-label="Visitar Twitter">
+            <TwitterIcon size={22} />
+          </a>
+        </div>
+        <div className="theme-container">
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+        </div>
       </div><nav className={`nav ${menuOpen ? 'active' : ''}`}>
         <ul>
           <li><NavLink to="/" onClick={() => toggleMenu()} end>Inicio</NavLink></li>
@@ -129,33 +154,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
           </li>
           <li><NavLink to="/contacto" onClick={() => toggleMenu()}>Contacto</NavLink></li>
           <li className="mobile-contact"><a href={`tel:${contactInfo.phone}`}>Llamar ahora</a></li>
-        </ul>
-      </nav><div className="contact-info desktop-only">
-        <a href={`tel:${contactInfo.phone}`} className="header-phone"><PhoneIcon size={14} /> {contactInfo.phone}</a>
-        <div className="header-social">
-          {contactInfo.socialMedia && (
-            <>              {contactInfo.socialMedia.facebook && (
-                <a href={contactInfo.socialMedia.facebook} target="_blank" rel="noopener noreferrer" title="Facebook">
-                  <FacebookIcon size={14} />
-                </a>
-              )}
-              {contactInfo.socialMedia.instagram && (
-                <a href={contactInfo.socialMedia.instagram} target="_blank" rel="noopener noreferrer" title="Instagram">
-                  <InstagramIcon size={14} />
-                </a>
-              )}
-              {contactInfo.socialMedia.twitter && (
-                <a href={contactInfo.socialMedia.twitter} target="_blank" rel="noopener noreferrer" title="Twitter">
-                  <TwitterIcon size={14} />
-                </a>
-              )}
-            </>
-          )}
-        </div>
-        <div className="header-actions">
-          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-        </div>
-      </div>
+        </ul>      </nav>
     </header>
   );
 };
