@@ -22,17 +22,20 @@ export const useSmoothScroll = () => {
         
         // Si es un enlace interno que comienza con #
         if (href && href.startsWith('#')) {
+          // Prevenir navegación por defecto
           event.preventDefault();
           
+          // Extraer el ID del elemento destino
           const targetId = href.substring(1);
-          const targetElement = document.getElementById(targetId);
+          
+          // Asegurarse de que el elemento exista
+          const scrollToElement = () => {
+            const targetElement = document.getElementById(targetId);
             if (targetElement) {
-            // Ajuste para compensar altura del header fijo
-            const headerOffset = 80; // Altura aproximada del header en píxeles
-            
-            // Pequeño retraso para asegurar que el DOM esté completamente cargado
-            setTimeout(() => {
-              // Recalcular la posición después del timeout para mayor precisión
+              // Ajuste para compensar la altura del header fijo
+              const headerOffset = 100; // Un poco más para evitar que quede parcialmente oculto
+              
+              // Recalcular la posición para mayor precisión
               const elementPosition = targetElement.getBoundingClientRect().top;
               const offsetPosition = elementPosition + window.scrollY - headerOffset;
               
@@ -44,8 +47,14 @@ export const useSmoothScroll = () => {
               
               // Actualizar la URL sin recargar la página
               window.history.pushState(null, '', href);
-            }, 50);
-          }
+            }
+          };
+          
+          // Ejecutar inmediatamente el scroll y también con un pequeño retraso 
+          // para garantizar que funcione en todos los casos
+          scrollToElement();
+          // Backup para dispositivos lentos o cuando el DOM no está completamente listo
+          setTimeout(scrollToElement, 10);
         }
       }
     };

@@ -28,20 +28,29 @@ const Featured: React.FC = () => {
           className="view-menu-button"
           onClick={(e) => {
             e.preventDefault();
-            const menuElement = document.getElementById('menu-full');
-            if (menuElement) {
-              const headerOffset = 80;
-              const elementPosition = menuElement.getBoundingClientRect().top;
-              const offsetPosition = elementPosition + window.scrollY - headerOffset;
-              
-              window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-              });
-              
-              // Actualizar la URL sin recargar la página
-              window.history.pushState(null, '', '#menu-full');
-            }
+            
+            // Función para desplazarse al elemento
+            const scrollToMenu = () => {
+              const menuElement = document.getElementById('menu-full');
+              if (menuElement) {
+                const headerOffset = 100; // Aumentado para mayor seguridad
+                const elementPosition = menuElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+                
+                // Actualizar la URL sin recargar la página
+                window.history.pushState(null, '', '#menu-full');
+              }
+            };
+            
+            // Ejecutar inmediatamente y también con un pequeño retraso
+            scrollToMenu();
+            // Llamada adicional con retraso para garantizar que funcione siempre
+            setTimeout(scrollToMenu, 10);
           }}
         >Ver Menú Completo</a>
       </div>

@@ -41,13 +41,85 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
         <ul>
           <li><NavLink to="/" onClick={() => toggleMenu()} end>Inicio</NavLink></li>
           <li><NavLink to="/menu" onClick={() => toggleMenu()}>Menú</NavLink></li>
-          <li><a href="/#about" onClick={() => toggleMenu()}>Nosotros</a></li>
-          <li><a href="/#gallery" onClick={() => toggleMenu()}>Galería</a></li>
-          <li><a href="/#reservation" onClick={() => toggleMenu()}>Reservar</a></li>
+          <li>
+            <a 
+              href="/#about" 
+              onClick={(e) => {
+                e.preventDefault();
+                toggleMenu();
+                
+                // Esperar a que se cierre el menú antes de navegar
+                setTimeout(() => {
+                  const aboutSection = document.getElementById('about');
+                  if (aboutSection) {
+                    const headerOffset = 100;
+                    const offsetPosition = aboutSection.getBoundingClientRect().top + window.scrollY - headerOffset;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                    window.history.pushState(null, '', '/#about');
+                  }
+                }, 300);
+              }}
+            >
+              Nosotros
+            </a>
+          </li>
+          <li>
+            <a 
+              href="/#gallery" 
+              onClick={(e) => {
+                e.preventDefault();
+                toggleMenu();
+                
+                // Esperar a que se cierre el menú antes de navegar
+                setTimeout(() => {
+                  const gallerySection = document.getElementById('gallery');
+                  if (gallerySection) {
+                    const headerOffset = 100;
+                    const offsetPosition = gallerySection.getBoundingClientRect().top + window.scrollY - headerOffset;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                    window.history.pushState(null, '', '/#gallery');
+                  }
+                }, 300);
+              }}
+            >
+              Galería
+            </a>
+          </li>
+          <li>
+            <a 
+              href="/#reservation" 
+              onClick={(e) => {
+                e.preventDefault();
+                toggleMenu();
+                
+                // Esperar a que se cierre el menú antes de navegar
+                setTimeout(() => {
+                  const reservationSection = document.getElementById('reservation');
+                  if (reservationSection) {
+                    const headerOffset = 100;
+                    const offsetPosition = reservationSection.getBoundingClientRect().top + window.scrollY - headerOffset;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                    window.history.pushState(null, '', '/#reservation');
+                  }
+                }, 300);
+              }}
+            >
+              Reservar
+            </a>
+          </li>
           <li><NavLink to="/contacto" onClick={() => toggleMenu()}>Contacto</NavLink></li>
           <li className="mobile-contact"><a href={`tel:${contactInfo.phone}`}>Llamar ahora</a></li>
         </ul>
-      </nav>      <div className="contact-info desktop-only">
+      </nav><div className="contact-info desktop-only">
         <a href={`tel:${contactInfo.phone}`} className="header-phone"><PhoneIcon size={14} /> {contactInfo.phone}</a>
         <div className="header-social">
           {contactInfo.socialMedia && (

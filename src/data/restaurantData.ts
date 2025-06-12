@@ -8,11 +8,10 @@ export const categories: Category[] = [
   { id: 'drinks', name: 'Bebidas' }
 ];
 
-export const menuItems: MenuItem[] = [
-  {    id: 1,
+export const menuItems: MenuItem[] = [  {    id: 1,
     name: 'Ensalada César',
     description: 'Lechuga romana, pollo a la parrilla, crutones, queso parmesano y nuestra salsa césar casera',
-    price: 199,
+    price: 85,
     imageUrl: images.caesarSalad,
     category: 'starters',
     tags: ['saludable', 'popular']
@@ -20,14 +19,14 @@ export const menuItems: MenuItem[] = [
     id: 2,
     name: 'Guacamole Fresco',
     description: 'Guacamole fresco preparado al momento con aguacate, tomate, cebolla y chile',
-    price: 170,
+    price: 65,
     imageUrl: images.croquetas,
     category: 'starters'
   },  {
     id: 3,
     name: 'Mole Poblano',
     description: 'Auténtico mole poblano con pollo, servido con arroz y tortillas de maíz',
-    price: 379,
+    price: 120,
     imageUrl: images.paella,
     category: 'main',
     tags: ['tradicional', 'popular']
@@ -35,29 +34,28 @@ export const menuItems: MenuItem[] = [
     id: 4,
     name: 'Chiles Rellenos',
     description: 'Chiles poblanos rellenos de queso, bañados en salsa de tomate casera',
-    price: 450,
+    price: 110,
     imageUrl: images.entrecot,
     category: 'main'
-  },
-  {
+  },  {
     id: 5,
     name: 'Flan Casero',
     description: 'Flan casero con caramelo y un toque de canela',
-    price: 130,
+    price: 45,
     imageUrl: images.flan,
     category: 'desserts'
   },  {
     id: 6,
     name: 'Tarta de Chocolate',
     description: 'Tarta de chocolate con salsa de frambuesa',
-    price: 150,
+    price: 55,
     imageUrl: images.chocolateCake,
     category: 'desserts',
     tags: ['popular']
   },  {    id: 7,
     name: 'Margarita',
     description: 'Margarita clásica con tequila, limón y un borde de sal',
-    price: 299,
+    price: 75,
     imageUrl: images.sangria,
     category: 'drinks',
     tags: ['alcohol']
@@ -65,7 +63,7 @@ export const menuItems: MenuItem[] = [
     id: 8,
     name: 'Agua Mineral',
     description: 'Agua mineral natural',
-    price: 50,
+    price: 25,
     imageUrl: images.water,
     category: 'drinks'
   }

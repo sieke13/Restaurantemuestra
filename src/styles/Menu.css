@@ -263,10 +263,147 @@
 
 @media (max-width: 768px) {
   .menu {
-    padding: 3rem 1rem;
+    padding: 7rem 1rem 3rem 1rem; /* Padding superior aún mayor para evitar solapamientos con el header */
+  }
+
+  .section-title {
+    font-size: 2rem; /* Tamaño más apropiado para móviles */
+    margin-bottom: 1.5rem;
+  }
+
+  .menu-categories {
+    gap: 0.7rem;
+    overflow-x: auto; /* Permite desplazamiento horizontal para muchas categorías */
+    padding-bottom: 15px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch; /* Mejora el desplazamiento en iOS */
+    margin-bottom: 2rem;
+    /* Indicador visual de scroll horizontal */
+    background-image: linear-gradient(to right, transparent 0%, rgba(197, 48, 48, 0.05) 90%);
+    padding: 5px;
+    border-radius: 20px;
   }
 
   .category-button {
     margin-bottom: 0.5rem;
+    white-space: nowrap;
+    padding: 10px 18px; /* Botones más grandes para mejor interacción táctil */
+    font-size: 0.95rem;
+    margin-right: 5px;
+  }
+  
+  .menu-items {
+    grid-template-columns: 1fr; /* Una sola columna en móviles para mejor legibilidad */
+    gap: 1.5rem; /* Más espacio entre elementos para mejorar legibilidad */
+  }
+
+  .menu-item-details {
+    padding: 1.5rem; /* Más padding para mejor legibilidad */
+  }
+
+  .menu-item-header h3 {
+    font-size: 1.3rem; /* Ligeramente más grande para mejor legibilidad */
+    line-height: 1.4;
+  }
+
+  .menu-item-price {
+    font-size: 1.2rem;
+    padding: 6px 12px; /* Más padding para mejor visibilidad */
+  }
+}
+
+/* Para dispositivos muy pequeños */
+@media (max-width: 480px) {
+  .menu {
+    padding: 8rem 0.8rem 2rem 0.8rem; /* Aún más padding en la parte superior para evitar cualquier solapamiento */
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .category-button {
+    padding: 8px 16px; /* Botones de categoría más grandes para facilitar la interacción */
+    font-size: 0.85rem;
+    font-weight: 600; /* Más peso visual */
+    margin: 0 3px 5px 0;
+  }
+
+  .menu-categories {
+    margin-bottom: 1.8rem;
+    padding: 8px 5px;
+  }
+
+  .menu-item {
+    margin-bottom: 1.5rem;
+    /* Sombra mejorada para mejor separación visual */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu-item-details {
+    padding: 1.2rem; /* Un poco más de padding que antes */
+  }
+
+  .menu-item-header {
+    flex-direction: column; /* Nombre y precio en columna para mejor ajuste */
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .menu-item-header h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+
+  .menu-item-price {
+    font-size: 1.1rem;
+    padding: 4px 10px;
+    display: inline-block;
+  }
+
+  .menu-item-description {
+    font-size: 0.9rem; /* Incrementado para mejor legibilidad */
+    margin: 1rem 0;
+    line-height: 1.5; /* Mejor espaciado de línea */
+  }
+  
+  /* Ajustar altura de imagen para dispositivos pequeños */
+  .menu-item-image {
+    height: 180px;
+  }
+}
+
+/* Para dispositivos extremadamente pequeños */
+@media (max-width: 360px) {
+  .menu {
+    padding: 7.5rem 0.6rem 1.5rem 0.6rem;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .category-button {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+  
+  .menu-item-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .menu-item-image {
+    height: 160px;
+  }
+  
+  .menu-item-details {
+    padding: 1rem;
+  }
+  
+  .menu-item-description {
+    font-size: 0.85rem;
+    margin: 0.8rem 0;
   }
 }
