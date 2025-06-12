@@ -1,0 +1,178 @@
+.add-to-cart-container {
+  position: relative;
+}
+
+.add-to-cart-container.default .add-to-cart-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.add-to-cart-container.compact .add-to-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #c0392b;
+}
+
+/* Options panel */
+.add-to-cart-options {
+  background-color: var(--background-color);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  width: 300px;
+  z-index: 10;
+}
+
+.add-to-cart-container.default .add-to-cart-options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+}
+
+.add-to-cart-container.full-width .add-to-cart-options {
+  width: 100%;
+  box-shadow: none;
+  padding: 0;
+}
+
+.add-to-cart-options h4 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: var(--text-color);
+}
+
+.menu-item-details {
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.menu-item-details h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.menu-item-details p {
+  margin: 4px 0 0;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* Quantity selector */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-controls button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-alt);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.quantity-controls button:hover:not(:disabled) {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.quantity-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.quantity-controls span {
+  width: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Special instructions */
+.special-instructions {
+  margin-bottom: 16px;
+}
+
+.special-instructions label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.special-instructions textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  resize: vertical;
+}
+
+/* Action buttons */
+.add-to-cart-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.cancel-button {
+  padding: 10px 16px;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-color);
+  flex: 0.4;
+}
+
+.confirm-button {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  flex: 1;
+}
+
+.price {
+  font-weight: 800;
+}

@@ -1,0 +1,270 @@
+/* Header.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: var(--header-bg-color);
+  box-shadow: var(--header-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.logo h1 {
+  font-size: 2.4rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+  font-family: 'Pacifico', 'Brush Script MT', cursive;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  text-shadow: 3px 3px 6px rgba(197, 48, 48, 0.3);
+  transform: rotate(-2deg);
+  padding: 0.2rem 0;
+  position: relative;
+  display: inline-block;
+  animation: shimmer 2s infinite;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  margin: 0 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--primary-color);
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-info a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.header-phone {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  background-color: rgba(197, 48, 48, 0.08);
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+}
+
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: white;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  overflow: hidden;
+}
+
+.header-social a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(197, 48, 48, 0.25);
+}
+
+/* Estilos específicos para iconos clásicos en el header */
+.header-social a .classic-icon-facebook,
+.header-social a .classic-icon-instagram,
+.header-social a .classic-icon-twitter {
+  width: 14px;
+  height: 14px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 200;
+  padding: 10px;
+  margin-right: -10px;
+}
+
+.menu-toggle .bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Clases adicionales para mostrar/ocultar elementos según el dispositivo */
+.desktop-only {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.mobile-contact {
+  display: none;
+}
+
+/* Overlay del menú móvil */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0.8rem;
+  }
+  
+  .logo h1 {
+    font-size: 1.8rem;
+  }
+  
+  .menu-toggle {
+    display: flex;
+    order: 3;
+  }
+  
+  .menu-overlay {
+    display: block;
+  }
+  
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 150;
+    padding: 80px 0 0 0;
+  }
+  
+  .nav.active {
+    right: 0;
+  }
+  
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav li {
+    margin: 1rem 0;
+  }
+  
+  /* Ocultar contacto en la cabecera para móviles */
+  .desktop-only {
+    display: none;
+  }
+  
+  /* Mostrar enlace de contacto en el menú móvil */
+  .mobile-contact {
+    display: block;
+    margin-top: 1.5rem !important;
+  }
+  
+  .mobile-contact a {
+    background-color: var(--primary-color);
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
+  
+  .mobile-contact a:hover {
+    background-color: var(--primary-hover-color);
+  }
+}

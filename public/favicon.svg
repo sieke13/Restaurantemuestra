@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="4" fill="#e74c3c"/>
+  <text x="50%" y="50%" font-family="Playfair Display, serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">CE</text>
+  <path d="M4,24 L28,24" stroke="white" stroke-width="2"/>
+</svg>

@@ -1,0 +1,182 @@
+/* SocialMedia.css */
+.social-media {
+  margin-top: 1.2rem;
+}
+
+.social-media h3 {
+  font-size: 1.1rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.7rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  margin-bottom: 0.4rem;
+  border: none;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.1);
+}
+
+.social-link svg {
+  margin-right: 5px;
+}
+
+.social-link.facebook {
+  background: linear-gradient(to right, #3b5998, #4c70ba);
+}
+
+.social-link.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-link.twitter {
+  background: linear-gradient(to right, #1DA1F2, #55acee);
+}
+
+/* Estilos para los nuevos iconos clásicos */
+.classic-icon-facebook,
+.classic-icon-instagram,
+.classic-icon-twitter {
+  margin-right: 5px;
+  min-width: 16px;
+}
+
+.classic-icon-facebook {
+  fill: white;
+}
+
+.classic-icon-instagram {
+  fill: white;
+}
+
+.classic-icon-twitter {
+  fill: white;
+}
+
+/* Estilos para los iconos circulares en la sección de contacto */
+.social-links-contact {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-link-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.social-link-circle:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.social-link-circle.facebook {
+  background: #3b5998;
+}
+
+.social-link-circle.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-link-circle.twitter {
+  background: #1DA1F2;
+}
+
+@media (max-width: 768px) {
+  .social-links {
+    justify-content: flex-start;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .social-link {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.3rem;
+    min-width: auto;
+    text-align: center;
+    border-radius: 12px;
+  }
+  
+  .social-link svg {
+    margin-right: 3px;
+  }
+  
+  .social-media h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links {
+    gap: 0.4rem;
+    justify-content: space-between;
+  }
+  
+  .social-link {
+    padding: 0.15rem 0.4rem;
+    font-size: 0.65rem;
+    min-width: auto;
+    flex: 1;
+    border-radius: 10px;
+  }
+  
+  .social-media {
+    margin-top: 1rem;
+  }
+    .social-media h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .social-links {
+    flex-direction: column;
+  }
+  
+  .social-link {
+    width: 100%;
+    padding: 0.2rem 0.3rem;
+    justify-content: flex-start;
+  }
+  
+  .social-link svg {
+    margin-right: 5px;
+  }
+}

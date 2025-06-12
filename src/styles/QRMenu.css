@@ -1,0 +1,89 @@
+/* QRMenu.css */
+.qr-menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  max-width: 500px;
+}
+
+.qr-code-wrapper {
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow, 0 3px 10px rgba(0, 0, 0, 0.1));
+  margin-bottom: 1.5rem;
+}
+
+.qr-menu-instructions {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.qr-menu-instructions p {
+  margin-bottom: 1rem;
+  color: var(--secondary-text-color, #555);
+}
+
+.qr-download-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.qr-filename-input {
+  padding: 0.8rem;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 4px;
+  width: 100%;
+  max-width: 300px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--card-bg-color, #fff);
+  color: var(--text-color, #333);
+}
+
+.qr-download-btn {
+  background-color: var(--primary-color, #e74c3c);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.qr-download-btn:hover {
+  background-color: var(--primary-hover-color, #c0392b);
+}
+
+@media (min-width: 768px) {
+  .qr-menu-container {
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .qr-code-wrapper {
+    margin-bottom: 0;
+  }
+  
+  .qr-menu-instructions {
+    text-align: left;
+    flex: 1;
+  }
+  
+  .qr-download-section {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 767px) {
+  .qr-code-wrapper {
+    transform: scale(0.9);
+  }
+}

@@ -1,0 +1,78 @@
+/* DarkMode.css */
+:root {
+  --primary-color: #c53030;
+  --primary-hover-color: #9b2c2c;
+  --text-color: #333;
+  --secondary-text-color: #555;
+  --light-text-color: #777;
+  --background-color: #fff;
+  --secondary-bg-color: #fdf5f5;
+  --highlight-bg-color: #fdf0f0;
+  --border-color: #f0cdcd;
+  --card-bg-color: #fff;
+  --card-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  --header-bg-color: #fff;
+  --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  --footer-bg-color: #1f1212;
+  --footer-secondary-bg-color: #111;
+  --footer-text-color: #f0cdcd;  --overlay-color: rgba(0, 0, 0, 0.5);
+  --theme-transition: color 0.2s ease, background-color 0.2s ease;
+  --gradient-primary: linear-gradient(135deg, #c53030 0%, #e53e3e 100%);
+  --gradient-secondary: linear-gradient(135deg, #fdf0f0 0%, #fff 100%);
+  --gradient-button: linear-gradient(to right, #c53030, #e53e3e);
+  --gradient-button-hover: linear-gradient(to right, #9b2c2c, #c53030);
+  --gradient-header: linear-gradient(to right, rgba(197, 48, 48, 0.9), rgba(229, 62, 62, 0.9));
+}
+
+[data-theme='dark'] {
+  --primary-color: #f56565;
+  --primary-hover-color: #fc8181;
+  --text-color: #f5f1f1;
+  --secondary-text-color: #e8dada;
+  --light-text-color: #cfc0c0;
+  --background-color: #1a1212;
+  --secondary-bg-color: #251919;
+  --highlight-bg-color: #302020;
+  --border-color: #462c2c;
+  --card-bg-color: #2a1e1e;
+  --card-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+  --header-bg-color: #221717;
+  --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --footer-bg-color: #140e0e;
+  --footer-secondary-bg-color: #0e0a0a;
+  --footer-text-color: #ebd9d9;
+  --gradient-primary: linear-gradient(135deg, #ff6b6b 0%, #fd8585 100%);
+  --gradient-secondary: linear-gradient(135deg, #251919 0%, #302020 100%);
+  --gradient-button: linear-gradient(to right, #ff6b6b, #fd8585);
+  --gradient-button-hover: linear-gradient(to right, #e53e3e, #f56565);
+  --gradient-header: linear-gradient(to right, #ff6b6b, #fd8585);
+  --overlay-color: rgba(0, 0, 0, 0.7);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: var(--theme-transition);
+}
+
+/* Estilos para el botón de cambio de tema */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+  margin-left: 10px;
+  color: var(--text-color);
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
+.theme-icon {
+  font-size: 1.2rem;
+}

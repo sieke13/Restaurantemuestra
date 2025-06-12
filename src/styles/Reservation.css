@@ -1,0 +1,119 @@
+/* Reservation.css */
+.reservation {
+  padding: 5rem 5%;
+  background-color: var(--secondary-bg-color, #f9f9f9);
+}
+
+.reservation h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--text-color, #222);
+  margin-bottom: 3rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.reservation-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--card-bg-color, #fff);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow, 0 3px 15px rgba(0, 0, 0, 0.1));
+}
+
+.reservation-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.reservation-form .form-group:last-child {
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-color, #333);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--card-bg-color, #fff);
+  color: var(--text-color, #333);
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.submit-button {
+  background-color: var(--primary-color, #e74c3c);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: var(--primary-hover-color, #c0392b);
+}
+
+.section-info {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: var(--secondary-text-color, #555);
+  line-height: 1.6;
+}
+
+/* Estilos para campos con errores */
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+  border-color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.05);
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+}
+
+/* Estilos de confirmación */
+.confirmation-message {
+  text-align: center;
+  background-color: #e7f6e7;
+  color: #2d862d;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .reservation {
+    padding: 3rem 1rem;
+  }
+  
+  .reservation-form {
+    grid-template-columns: 1fr;
+  }
+}

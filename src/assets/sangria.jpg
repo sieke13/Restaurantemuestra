@@ -1,0 +1,8 @@
+<!-- This is a placeholder SVG for the Sangria image -->
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f4e6e7"/>
+  <text x="50%" y="50%" font-family="Arial" font-size="20" fill="#8b0000" text-anchor="middle">Sangría</text>
+  <path d="M160,100 Q200,50 240,100 L240,200 Q200,220 160,200 Z" fill="#8b0000" fill-opacity="0.7"/>
+  <circle cx="200" cy="80" r="10" fill="#ffcc00"/>
+  <circle cx="220" cy="120" r="10" fill="#ff7700"/>
+</svg>

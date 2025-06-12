@@ -1,0 +1,50 @@
+/* ScrollAnimation.css */
+.scroll-animation {
+  opacity: 0;
+  transition-duration: 0.8s;
+  transition-timing-function: ease;
+}
+
+.scroll-animation.animated {
+  opacity: 1;
+}
+
+.fade-in {
+  transform: translateY(30px);
+}
+
+.fade-in.animated {
+  transform: translateY(0);
+}
+
+.fade-left {
+  transform: translateX(-50px);
+}
+
+.fade-left.animated {
+  transform: translateX(0);
+}
+
+.fade-right {
+  transform: translateX(50px);
+}
+
+.fade-right.animated {
+  transform: translateX(0);
+}
+
+.scale-up {
+  transform: scale(0.8);
+}
+
+.scale-up.animated {
+  transform: scale(1);
+}
+
+.rotate-in {
+  transform: rotate(-10deg) scale(0.9);
+}
+
+.rotate-in.animated {
+  transform: rotate(0) scale(1);
+}
